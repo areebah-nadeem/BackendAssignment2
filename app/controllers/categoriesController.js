@@ -65,7 +65,7 @@ const updateDataById = async function (req, res, next) {
 const listByName = async function (req, res, next)  {
 
   const {name} = req.params;
-  //const { name } = req.params;
+
   try {
   
     const newname=await data.find({ name: { $regex: name, $options: 'i' } });
@@ -87,27 +87,7 @@ res.status(404).json({error: 'Cannot Delete data'});
   }
 };
 
-// await productData.deleteMany({});
-// res.json({ message: 'Done: Removed successfully' });
-// } catch (error) {
-// res.status(404).json({ error: 'Error: Cannot remove all data' + error.message });
-// }
 
-// const listByName = async function (req, res, next) {
-//   const { name } = req.params; // Get the value of :name from the route parameter
-//   try {
-//     // Use the value of `name` in your database query without casting to ObjectId
-//     const result = await categories.find({ name: { $regex: name, $options: 'i' } });
-
-//     if (result.length === 0) {
-//       res.status(404).json({ error: 'No matching data found' });
-//     } else {
-//       res.json(result);
-//     }
-//   } catch (error) {
-//     res.status(500).json({ error: 'Error: Cannot list data by name ' + error.message });
-//   }
-// };
 
 
 module.exports = 
